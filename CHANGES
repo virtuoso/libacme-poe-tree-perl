@@ -1,0 +1,30 @@
+=================================
+2008-12-15T09:34:16.769623Z v1_01
+=================================
+
+  2008-12-15 09:33:55 (r5) by rcaputo
+  Makefile.PL M; lib/Acme/POE/Tree.pm M
+
+    Add prerequisites! 
+
+=================================
+2008-12-15T09:29:12.875654Z v1_00
+=================================
+
+  2008-12-15 09:28:24 (r3) by rcaputo; lib/Acme/POE/Tree.pm M
+
+    Fix the version number format.
+
+  2008-12-15 09:26:24 (r2) by rcaputo; MANIFEST A; Makefile.PL A
+
+    Forgot to commit these. 
+
+  2008-12-15 09:24:46 (r1) by rcaputo
+  lib/Acme/POE A; /trunk A; /branches A; t A; lib A; t/01_basic.t A;
+  lib/Acme/POE/Tree.pm A; /tags A; lib/Acme A
+
+    Initiali commit. 
+
+==============
+End of Excerpt
+==============
