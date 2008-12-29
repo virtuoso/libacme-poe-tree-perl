@@ -1,0 +1,52 @@
+#!/usr/bin/make -f
+
+# Hey, Mr Emacs, this is a -*- makefile -*-
+
+PERL = /usr/bin/perl
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+	$(PERL) Makefile.PL INSTALLDIRS=vendor
+	$(MAKE) OPTIMIZE="-O2 -Wall"
+	touch $@
+
+clean:
+	rm -f build-stamp Makefile.old
+	[ -f Makefile ] && $(MAKE) clean || :
+	dh_clean
+
+install: 
+	dh_testroot
+	dh_installdirs
+	$(MAKE) install PREFIX=$(CURDIR)/debian/libacme-poe-tree-perl/usr
+	$(RM) -r $(CURDIR)/debian/libacme-poe-tree-perl/usr/lib
+	$(RM) $(CURDIR)/debian/libacme-poe-tree-perl/usr/share/perl5/Acme/POE/demo_*
+
+binary-arch: build install
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installdocs 
+	dh_installexamples
+	dh_installchangelogs
+	dh_installmenu
+	dh_installcron
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_perl 
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+source diff:                                                                  
+	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary

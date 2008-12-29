@@ -1,0 +1,13 @@
+Source: libacme-poe-tree-perl
+Section: perl
+Priority: optional
+Build-Depends-Indep: debhelper (>= 4), perl (>= 5.6.0-17)
+Maintainer: Alexander Shishkin <virtuoso@slind.org>
+Standards-Version: 3.8.0
+
+Package: libacme-poe-tree-perl
+Architecture: all
+Depends: ${perl:Depends}, libpoe-perl, libio-tty-perl, libcurses-perl
+Description: An animated christmas tree
+ Christmas tree using POE event library.
+
